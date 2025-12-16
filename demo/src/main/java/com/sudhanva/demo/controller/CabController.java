@@ -16,6 +16,6 @@ public class CabController {
     public CabResponse registerCab(@RequestBody CabRequest cabRequest,
                               @PathVariable("driverid") int driverId)
     {
-        return cabService.registerCab(cabRequest);
+        return cabService.registerCab(cabRequest,driverId);
     }
 }

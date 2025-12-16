@@ -2,7 +2,8 @@ package com.sudhanva.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import com.sudhanva.demo.model.Cab;
+import com.sudhanva.demo.model.Booking;
 import java.util.ArrayList;
 import java.util.List;
 
