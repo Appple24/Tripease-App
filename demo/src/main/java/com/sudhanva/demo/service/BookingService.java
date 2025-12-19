@@ -47,7 +47,6 @@ public class BookingService {
         Booking booking = BookingTransformer.BookingRequestToBooking(bookingRequest, avaliableCab.getPerKmRate());
         Booking savedBooking =bookingRepository.save(booking);
         avaliableCab.setAvailable(false);
-
         customer.getBookings().add(savedBooking);
 
         Driver driver = driverRepository.getDriverByCabId(avaliableCab.getCabId());

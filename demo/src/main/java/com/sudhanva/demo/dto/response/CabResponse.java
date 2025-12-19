@@ -15,7 +15,7 @@ public class CabResponse {
 
     private double perKmRate;
 
-    private boolean available;
+    private boolean isAvailable;
 
     private DriverResponse driver;
 

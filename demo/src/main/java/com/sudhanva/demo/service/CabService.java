@@ -8,6 +8,7 @@ import com.sudhanva.demo.repository.CabRepository;
 import com.sudhanva.demo.repository.DriverRepository;
 import com.sudhanva.demo.transformers.CabTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.availability.ApplicationAvailabilityBean;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,6 +18,9 @@ public class CabService {
 
     @Autowired
     private DriverRepository driverRepository;
+    @Autowired
+    private ApplicationAvailabilityBean applicationAvailability;
+
     public CabResponse registerCab(CabRequest cabRequest,int driverId) {
 
         Optional<Driver> optionalDriver=driverRepository.findById(driverId);
@@ -25,6 +29,7 @@ public class CabService {
         }
         Driver driver=optionalDriver.get();
         Cab cab = CabTransformer.cabRequestToCab(cabRequest);
+        System.out.println("cab Availability "+ cab.isAvailable());
         driver.setCab(cab);
         Driver savedDriver=driverRepository.save(driver);
         return CabTransformer.cabToCabResponse(savedDriver.getCab(),savedDriver);

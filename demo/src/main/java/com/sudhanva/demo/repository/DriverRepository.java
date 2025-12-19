@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface DriverRepository extends JpaRepository<Driver,Integer> {
 
-    @Query(value = "select * from Driver  where d.cab_id = :cabId",nativeQuery = true)
+    @Query(value = "select * from driver d where d.cab_id = :cabId",nativeQuery = true)
     Driver getDriverByCabId(@Param("cabId")int cabId);
 }

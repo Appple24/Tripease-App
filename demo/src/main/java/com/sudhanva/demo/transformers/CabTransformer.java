@@ -13,7 +13,7 @@ public class CabTransformer {
                 CabNumber(cab.getCabNumber()).
                 CabModel(cab.getCabModel()).
                 perKmRate(cab.getPerKmRate()).
-                available(cab.isAvailable()).
+                isAvailable(cab.isAvailable()).
                 driver(DriverTransformer.DriverToDriverResponse(driver)).
                 build();
     }
@@ -24,6 +24,7 @@ public class CabTransformer {
                 CabNumber(cabRequest.getCabNumber()).
                 CabModel(cabRequest.getCabModel()).
                 perKmRate(cabRequest.getPerKmRate()).
+                isAvailable(cabRequest.isAvaliable()).
                 build();
     }
 }
