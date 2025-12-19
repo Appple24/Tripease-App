@@ -1,25 +1,20 @@
-package com.sudhanva.demo.model;
+package com.sudhanva.demo.dto.response;
 
 import com.sudhanva.demo.Enum.TripStatus;
-import jakarta.persistence.*;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @Builder
-public class Booking
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Integer bookingId;
+public class BookingResponse {
 
     private String pickUp;
 
@@ -27,14 +22,15 @@ public class Booking
 
     private double tripDistanceInKm;
 
-    @Enumerated(value=EnumType.STRING)
     private TripStatus tripStatus;
 
     private double billAmount;
 
-    @CreationTimestamp
     Date bookedAt;
 
-    @UpdateTimestamp
     Date lastUpdateAt;
+
+    CustomerResponse customer;
+
+    CabResponse cab;
 }
